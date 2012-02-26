@@ -1,9 +1,9 @@
 //
 //  RootViewController.h
-//  Pong
+//  VolcanoPongProto2
 //
-//  Created by Leonardo Eloy on 26/02/12.
-//  Copyright __MyCompanyName__ 2012. All rights reserved.
+//  Created by Leonardo Eloy on 08/02/12.
+//  Copyright MegaBlasterSuperHeroes 2012. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

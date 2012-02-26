@@ -1,8 +1,8 @@
 //
 //  main.m
-//  Pong
+//  VolcanoPongProto2
 //
-//  Created by Leonardo Eloy on 26/02/12.
+//  Created by Leonardo Eloy on 08/02/12.
 //  Copyright __MyCompanyName__ 2012. All rights reserved.
 //
 
