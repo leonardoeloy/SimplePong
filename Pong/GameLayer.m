@@ -56,7 +56,7 @@ static GameLayer *gameLayerInstance;
 		gameLayerInstance = self;
         
         CGSize winSize = [[CCDirector sharedDirector] winSize];  
-        CCSprite *background = [CCSprite spriteWithFile:@"background.png"];
+        CCSprite *background = [CCSprite spriteWithFile:@"board.png"];
         background.position = ccp(winSize.width/2, winSize.height/2);
         [self addChild:background z:-1];
       
@@ -92,8 +92,8 @@ static GameLayer *gameLayerInstance;
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     CCSprite *paddleSprite = [CCSprite spriteWithFile:@"paddle.png"]; 
     
-    CGPoint playerPaddlePosition = CGPointMake(winSize.width / 2 , [paddleSprite texture].contentSize.height + BACKGROUND_Y_OFFSET);
-    CGPoint opponentPaddlePosition = CGPointMake(winSize.width / 2 , winSize.height - [paddleSprite texture].contentSize.height - BACKGROUND_Y_OFFSET);
+    CGPoint playerPaddlePosition = CGPointMake(winSize.width / 2 , [paddleSprite texture].contentSize.height + PLAYER_PADDLE_OFFSET);
+    CGPoint opponentPaddlePosition = CGPointMake(winSize.width / 2 , winSize.height - [paddleSprite texture].contentSize.height - OPPONENT_PADDLE_OFFSET);
     CGPoint ballPosition = CGPointMake(winSize.width/2, winSize.height/2);
     
     Ball *ball = (Ball *)[self getChildByTag:BallTag];

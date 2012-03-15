@@ -13,6 +13,7 @@
 @interface Ball (PrivateMethods) 
 -(BOOL) isBetween:(float)number fromInclusive:(int)from to:(int)to;
 -(void) scoreTo:(int)whoScored_;
+//-(void) animateBallFalling;
 @end
 
 @implementation Ball 
@@ -38,6 +39,11 @@
         
         [self addChild:ballSprite];
         [self resetBall];
+        
+        // Randomize ball direction
+        dX = [self randomInteger];
+        dY = [self randomInteger];
+        
         [self scheduleUpdate];
     }
     
@@ -104,10 +110,10 @@
             dX *= -1;
         } 
         
-        if (ballSprite.position.y >= winSize.height - [ballSprite texture].contentSize.width/2 -BACKGROUND_Y_OFFSET) {
+        if (ballSprite.position.y >= winSize.height - [ballSprite texture].contentSize.width/2 - OPPONENT_PADDLE_OFFSET) {
             [self scoreTo:PlayerTag];
             return;
-        } else if (ballSprite.position.y <= [ballSprite texture].contentSize.height/2 + BACKGROUND_Y_OFFSET) {
+        } else if (ballSprite.position.y <= [ballSprite texture].contentSize.height/2 + PLAYER_PADDLE_OFFSET) {
             [self scoreTo:OpponentTag];
             return;
         }
@@ -130,15 +136,49 @@
     }
     
     ballState = BallStateStill;
+    
+//    [self animateBallFalling];
 }
 
 -(void) resetBall {
     CCLOG(@"Ball reseted!");
     ballState = BallStateStill;
     whoScored = 0;
-    ballVx = 200 * cos(CC_DEGREES_TO_RADIANS(60));
-    ballVy = 200 * sin(CC_DEGREES_TO_RADIANS(60));
+    ballVx = 200 * cos(CC_DEGREES_TO_RADIANS(60)) * [self randomInteger];
+    ballVy = 200 * sin(CC_DEGREES_TO_RADIANS(60)) * [self randomInteger];
 }
+
+-(int) randomInteger {
+    srandom(time(NULL));
+    
+    if (CCRANDOM_MINUS1_1() >= 0) {
+        return 1;
+    }
+    
+    return -1;
+}
+
+/* Gotta work on this 
+-(void) animateBallFalling {
+//    float moveNextX = ballSprite.position.x + ballVx * 0.5 * dX;
+//    float moveNextY = ballSprite.position.x + ballVy * 0.5 * dY;
+    
+    // Make the ball fall & scale it down
+    CCMoveBy *moveAwayFromBoard = [CCMoveBy actionWithDuration:0.1f position:ccp(5 * dX, 5 * dY)];
+    CCScaleTo *scaleDown = [CCScaleTo actionWithDuration:0.1f scale:0.6f];
+    
+    // Make the ball move a little and scale it up, simulating a bounce
+    CCScaleTo *scaleUp = [CCScaleTo actionWithDuration:0.2f scale:0.8f];
+    
+    CCSequence *fall = [CCSequence actions:moveAwayFromBoard, scaleDown, nil];
+    CCSequence *bounce = [CCSequence actions:scaleUp, moveAwayFromBoard, scaleDown, nil];
+
+    CCSequence *action = [CCSequence actionOne:fall two:bounce];
+    [ballSprite runAction:moveAwayFromBoard];
+    [ballSprite runAction:scaleUp];
+    //[ballSprite runAction:action];
+}
+ */
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     return (ballState == BallStateStill);

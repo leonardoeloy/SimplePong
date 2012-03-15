@@ -13,8 +13,9 @@
 #define GameLayerTag 3
 #define BallTag 4
 
-#define BACKGROUND_Y_OFFSET 10
-#define BACKGROUND_X_OFFSET 9
+#define PLAYER_PADDLE_OFFSET 35
+#define OPPONENT_PADDLE_OFFSET 25
+#define BACKGROUND_X_OFFSET 18
 
 @interface GameLayer : CCLayer
 {

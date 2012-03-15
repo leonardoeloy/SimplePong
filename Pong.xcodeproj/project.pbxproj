@@ -124,9 +124,16 @@
 		F6C7154314FACF13000B02E1 /* Ball.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C7153E14FACF13000B02E1 /* Ball.m */; };
 		F6C7154414FACF13000B02E1 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C7154014FACF13000B02E1 /* GameLayer.m */; };
 		F6C7154514FACF13000B02E1 /* Paddle.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C7154214FACF13000B02E1 /* Paddle.m */; };
-		F6C7154914FACF32000B02E1 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F6C7154614FACF32000B02E1 /* background.png */; };
-		F6C7154A14FACF32000B02E1 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = F6C7154714FACF32000B02E1 /* ball.png */; };
-		F6C7154B14FACF32000B02E1 /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = F6C7154814FACF32000B02E1 /* paddle.png */; };
+		F6F9670A150D7C4B00D0EFC4 /* ball-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96700150D7C4B00D0EFC4 /* ball-hd.png */; };
+		F6F9670B150D7C4B00D0EFC4 /* ball.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96701150D7C4B00D0EFC4 /* ball.png */; };
+		F6F9670C150D7C4B00D0EFC4 /* board-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96702150D7C4B00D0EFC4 /* board-hd.png */; };
+		F6F9670D150D7C4B00D0EFC4 /* board.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96703150D7C4B00D0EFC4 /* board.png */; };
+		F6F9670E150D7C4B00D0EFC4 /* Default-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96704150D7C4B00D0EFC4 /* Default-hd.png */; };
+		F6F96710150D7C4B00D0EFC4 /* paddle-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96706150D7C4B00D0EFC4 /* paddle-hd.png */; };
+		F6F96711150D7C4B00D0EFC4 /* paddle.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96707150D7C4B00D0EFC4 /* paddle.png */; };
+		F6F96712150D7C4B00D0EFC4 /* play-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96708150D7C4B00D0EFC4 /* play-hd.png */; };
+		F6F96713150D7C4B00D0EFC4 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96709150D7C4B00D0EFC4 /* play.png */; };
+		F6F96715150D7C8700D0EFC4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6F96714150D7C8700D0EFC4 /* Default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -369,9 +376,17 @@
 		F6C7154014FACF13000B02E1 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		F6C7154114FACF13000B02E1 /* Paddle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paddle.h; sourceTree = "<group>"; };
 		F6C7154214FACF13000B02E1 /* Paddle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paddle.m; sourceTree = "<group>"; };
-		F6C7154614FACF32000B02E1 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		F6C7154714FACF32000B02E1 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ball.png; sourceTree = "<group>"; };
-		F6C7154814FACF32000B02E1 /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paddle.png; sourceTree = "<group>"; };
+		F6F96700150D7C4B00D0EFC4 /* ball-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ball-hd.png"; path = "../../pong/Pong/Resources/ball-hd.png"; sourceTree = "<group>"; };
+		F6F96701150D7C4B00D0EFC4 /* ball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ball.png; path = ../../pong/Pong/Resources/ball.png; sourceTree = "<group>"; };
+		F6F96702150D7C4B00D0EFC4 /* board-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "board-hd.png"; path = "../../pong/Pong/Resources/board-hd.png"; sourceTree = "<group>"; };
+		F6F96703150D7C4B00D0EFC4 /* board.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = board.png; path = ../../pong/Pong/Resources/board.png; sourceTree = "<group>"; };
+		F6F96704150D7C4B00D0EFC4 /* Default-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-hd.png"; path = "../../pong/Pong/Resources/Default-hd.png"; sourceTree = "<group>"; };
+		F6F96705150D7C4B00D0EFC4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../../pong/Pong/Resources/Default.png; sourceTree = "<group>"; };
+		F6F96706150D7C4B00D0EFC4 /* paddle-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paddle-hd.png"; path = "../../pong/Pong/Resources/paddle-hd.png"; sourceTree = "<group>"; };
+		F6F96707150D7C4B00D0EFC4 /* paddle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paddle.png; path = ../../pong/Pong/Resources/paddle.png; sourceTree = "<group>"; };
+		F6F96708150D7C4B00D0EFC4 /* play-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "play-hd.png"; path = "../../pong/Pong/Resources/play-hd.png"; sourceTree = "<group>"; };
+		F6F96709150D7C4B00D0EFC4 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = ../../pong/Pong/Resources/play.png; sourceTree = "<group>"; };
+		F6F96714150D7C8700D0EFC4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,9 +459,17 @@
 		F6C713DC14FACD3E000B02E1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F6C7154614FACF32000B02E1 /* background.png */,
-				F6C7154714FACF32000B02E1 /* ball.png */,
-				F6C7154814FACF32000B02E1 /* paddle.png */,
+				F6F96714150D7C8700D0EFC4 /* Default@2x.png */,
+				F6F96700150D7C4B00D0EFC4 /* ball-hd.png */,
+				F6F96701150D7C4B00D0EFC4 /* ball.png */,
+				F6F96702150D7C4B00D0EFC4 /* board-hd.png */,
+				F6F96703150D7C4B00D0EFC4 /* board.png */,
+				F6F96704150D7C4B00D0EFC4 /* Default-hd.png */,
+				F6F96705150D7C4B00D0EFC4 /* Default.png */,
+				F6F96706150D7C4B00D0EFC4 /* paddle-hd.png */,
+				F6F96707150D7C4B00D0EFC4 /* paddle.png */,
+				F6F96708150D7C4B00D0EFC4 /* play-hd.png */,
+				F6F96709150D7C4B00D0EFC4 /* play.png */,
 				F6C713DD14FACD3E000B02E1 /* Default.png */,
 				F6C713DF14FACD3E000B02E1 /* fps_images.png */,
 				F6C713E114FACD3E000B02E1 /* Icon-72.png */,
@@ -845,9 +868,16 @@
 				F6C713EA14FACD3E000B02E1 /* Icon.png in Resources */,
 				F6C713EC14FACD3E000B02E1 /* Icon@2x.png in Resources */,
 				F6C713EF14FACD3E000B02E1 /* iTunesArtwork in Resources */,
-				F6C7154914FACF32000B02E1 /* background.png in Resources */,
-				F6C7154A14FACF32000B02E1 /* ball.png in Resources */,
-				F6C7154B14FACF32000B02E1 /* paddle.png in Resources */,
+				F6F9670A150D7C4B00D0EFC4 /* ball-hd.png in Resources */,
+				F6F9670B150D7C4B00D0EFC4 /* ball.png in Resources */,
+				F6F9670C150D7C4B00D0EFC4 /* board-hd.png in Resources */,
+				F6F9670D150D7C4B00D0EFC4 /* board.png in Resources */,
+				F6F9670E150D7C4B00D0EFC4 /* Default-hd.png in Resources */,
+				F6F96710150D7C4B00D0EFC4 /* paddle-hd.png in Resources */,
+				F6F96711150D7C4B00D0EFC4 /* paddle.png in Resources */,
+				F6F96712150D7C4B00D0EFC4 /* play-hd.png in Resources */,
+				F6F96713150D7C4B00D0EFC4 /* play.png in Resources */,
+				F6F96715150D7C8700D0EFC4 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,10 +1039,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pong/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Pong/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1025,10 +1057,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Pong/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = Pong/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1053,6 +1087,7 @@
 				F6C7153B14FACD42000B02E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
