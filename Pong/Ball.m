@@ -57,57 +57,30 @@
 -(void) update:(ccTime)delta {
     if (ballState == BallStateMoving) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
-        CGSize paddleSize = [[playerPaddle paddleSprite] texture].contentSize;
+        CGSize ballTexture = [ballSprite texture].contentSize;
         
         if (CGRectIntersectsRect([ballSprite boundingBox], [[playerPaddle paddleSprite] boundingBox])) {
             CCLOG(@"Collided to player");
-            float segmentSize = (paddleSize.width / 6);
-            float collisionPos = ballSprite.position.x - ([playerPaddle paddleSprite].position.x - [[playerPaddle paddleSprite] texture].contentSize.width/2);
-            collisionPos = clampf(collisionPos, 1, [[playerPaddle paddleSprite] texture].contentSize.width );
-            CCLOG(@"px=%f bx=%f", ([playerPaddle paddleSprite].position.x - [[playerPaddle paddleSprite] texture].contentSize.width/2), ballSprite.position.x);
-
-            dY = 1;
-            if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize to:paddleSize.width]) {
-                dX = 2;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*2 to:paddleSize.width - segmentSize]) {
-                dX = 1;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*3 to:paddleSize.width - segmentSize*2]) {
-                dX = 0.5;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*4 to:paddleSize.width - segmentSize*3]) {
-                dX = -0.5;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*5 to:paddleSize.width - segmentSize*4]) {
-                dX = -1;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*6 to:paddleSize.width - segmentSize*5]) {
-                dX = -2;
-            }
+            float collisionPos = [playerPaddle paddleSprite].position.x - ballSprite.position.x;
+            float normalizedIntersectX = collisionPos / ([[playerPaddle paddleSprite] texture].contentSize.width/2); 
+            float bounceAngle = normalizedIntersectX * CC_DEGREES_TO_RADIANS(75);
+            ballVy = 200 * cosf(bounceAngle);
+            ballVx = 200 * -sinf(bounceAngle);
             
-            CCLOG(@"dX=%f dY=%f segSize=%f pos=%f", dX, dY, segmentSize, collisionPos);
+            CCLOG(@"!!!! pos=%f nIx=%f ba=%f vx=%f vy=%f", collisionPos, normalizedIntersectX, bounceAngle, ballVx, ballVy);            
         } else if (CGRectIntersectsRect([ballSprite boundingBox], [[opponentPaddle paddleSprite] boundingBox])) {
             CCLOG(@"Collided to opponent");
-            float segmentSize = (paddleSize.width / 6);
-            float collisionPos = ballSprite.position.x - ([opponentPaddle paddleSprite].position.x - [[opponentPaddle paddleSprite] texture].contentSize.width/2);
-            collisionPos = clampf(collisionPos, 1, [[playerPaddle paddleSprite] texture].contentSize.width );
-            CCLOG(@"px=%f bx=%f", ([opponentPaddle paddleSprite].position.x - [[opponentPaddle paddleSprite] texture].contentSize.width/2), ballSprite.position.x);
-            dY = -1;
-            if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize to:paddleSize.width]) {
-                dX = 2;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*2 to:paddleSize.width - segmentSize]) {
-                dX = 1;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*3 to:paddleSize.width - segmentSize*2]) {
-                dX = 0.5;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*4 to:paddleSize.width - segmentSize*3]) {
-                dX = -0.5;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*5 to:paddleSize.width - segmentSize*4]) {
-                dX = -1;
-            } else if ([self isBetween:collisionPos fromInclusive:paddleSize.width - segmentSize*6 to:paddleSize.width - segmentSize*5]) {
-                dX = -2;
-            }
+            float collisionPos = [opponentPaddle paddleSprite].position.x - ballSprite.position.x;
+            float normalizedIntersectX = collisionPos / ([[opponentPaddle paddleSprite] texture].contentSize.width/2); 
+            float bounceAngle = normalizedIntersectX * CC_DEGREES_TO_RADIANS(75);
+            ballVy = 200 * -cosf(bounceAngle);
+            ballVx = 200 * -sinf(bounceAngle);
             
-            CCLOG(@"dX=%f dY=%f segSize=%f pos=%f", dX, dY, segmentSize, collisionPos);
+            CCLOG(@"!!!! pos=%f nIx=%f ba=%f vx=%f vy=%f", collisionPos, normalizedIntersectX, bounceAngle, ballVx, ballVy);
         }
         
         if ((ballSprite.position.x >= winSize.width - [ballSprite texture].contentSize.width/2 - BACKGROUND_X_OFFSET) || (ballSprite.position.x <= [ballSprite texture].contentSize.width/2 + BACKGROUND_X_OFFSET)) {
-            dX *= -1;
+            ballVx *= -1;
         } 
         
         if (ballSprite.position.y >= winSize.height - [ballSprite texture].contentSize.width/2 - OPPONENT_PADDLE_OFFSET) {
@@ -118,8 +91,8 @@
             return;
         }
         
-        nextX = ballSprite.position.x + ballVx * delta * dX;
-        nextY = ballSprite.position.y + ballVy * delta * dY;
+        nextX = ballSprite.position.x + ballVx * delta;// * dX;
+        nextY = ballSprite.position.y + ballVy * delta;// * dY;
         
         ballSprite.position = ccp(nextX, nextY);
     }
